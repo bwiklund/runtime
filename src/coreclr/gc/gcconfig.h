@@ -64,8 +64,8 @@ public:
 // is the first parameter of the *_CONFIG macros below.
 #define GC_CONFIGURATION_KEYS \
     BOOL_CONFIG  (ServerGC,                  "gcServer",                  "System.GC.Server",                  false,              "Whether we should be using Server GC")                                                   \
-    BOOL_CONFIG  (ConcurrentGC,              "gcConcurrent",              "System.GC.Concurrent",              true,               "Whether we should be using Concurrent GC")                                                \
-    BOOL_CONFIG  (ConservativeGC,            "gcConservative",            NULL,                                false,              "Enables/Disables conservative GC")                                                       \
+    BOOL_CONFIG  (ConcurrentGC,              "gcConcurrent",              "System.GC.Concurrent",              false,               "Whether we should be using Concurrent GC")                                                \
+    BOOL_CONFIG  (ConservativeGC,            "gcConservative",            NULL,                                true,              "Enables/Disables conservative GC")                                                       \
     BOOL_CONFIG  (ForceCompact,              "gcForceCompact",            NULL,                                false,              "When set to true, always do compacting GC")                                              \
     BOOL_CONFIG  (RetainVM,                  "GCRetainVM",                "System.GC.RetainVM",                false,              "When set we put the segments that should be deleted on a standby list (instead of "       \
                                                                                                                                           "releasing them back to the OS) which will be considered to satisfy new segment requests" \
@@ -87,7 +87,7 @@ public:
     INT_CONFIG   (SegmentSize,               "GCSegmentSize",             NULL,                                0,                  "Specifies the managed heap segment size")                                                \
     INT_CONFIG   (LatencyMode,               "GCLatencyMode",             NULL,                                -1,                 "Specifies the GC latency mode - batch, interactive or low latency (note that the same "   \
                                                                                                                                            "thing can be specified via API which is the supported way")                             \
-    INT_CONFIG   (LatencyLevel,              "GCLatencyLevel",            NULL,                                1,                  "Specifies the GC latency level that you want to optimize for. Must be a number from 0 "  \
+    INT_CONFIG   (LatencyLevel,              "GCLatencyLevel",            NULL,                                2,                  "Specifies the GC latency level that you want to optimize for. Must be a number from 0 "  \
                                                                                                                                           "to 3. See documentation for more details on each level.")                                \
     INT_CONFIG   (LogFileSize,               "GCLogFileSize",             NULL,                                0,                  "Specifies the GC log file size")                                                         \
     INT_CONFIG   (CompactRatio,              "GCCompactRatio",            NULL,                                0,                  "Specifies the ratio compacting GCs vs sweeping")                                         \
@@ -97,7 +97,7 @@ public:
                                                                                                                                           "prefixed by the CPU group number. Example: Unix - 1,3,5,7-9,12, Windows - 0:1,1:7-9")    \
     INT_CONFIG   (GCHighMemPercent,          "GCHighMemPercent",          "System.GC.HighMemoryPercent",       0,                  "The percent for GC to consider as high memory")                                           \
     INT_CONFIG   (GCProvModeStress,          "GCProvModeStress",          NULL,                                0,                  "Stress the provisional modes")                                                           \
-    INT_CONFIG   (GCGen0MaxBudget,           "GCGen0MaxBudget",           NULL,                                0,                  "Specifies the largest gen0 allocation budget")                                           \
+    INT_CONFIG   (GCGen0MaxBudget,           "GCGen0MaxBudget",           NULL,                                524288,                  "Specifies the largest gen0 allocation budget")                                           \
     INT_CONFIG   (GCGen1MaxBudget,           "GCGen1MaxBudget",           NULL,                                0,                  "Specifies the largest gen1 allocation budget")                                           \
     INT_CONFIG   (GCLowSkipRatio,            "GCLowSkipRatio",            NULL,                                30,                 "Specifies the low generation skip ratio")                                                \
     INT_CONFIG   (GCHeapHardLimit,           "GCHeapHardLimit",           "System.GC.HeapHardLimit",           0,                  "Specifies a hard limit for the GC heap")                                                 \
